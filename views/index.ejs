@@ -104,7 +104,43 @@
             </div>
           </form>
         </div>
-      </div>
+        <!-- Statement Section -->
+        <div class="bg-white rounded-2xl p-4 sm:p-8 mt-10 shadow-md border-t-2">
+          <p class="text-2xl sm:text-3xl font-bold underline underline-offset-8 mb-6">
+            Transaction Statement
+          </p>
+        
+          <!-- Scrollable container -->
+          <div class="w-full overflow-x-auto">
+            <table class="w-full min-w-[800px] text-left border border-gray-200">
+              <thead>
+                <tr class="bg-gray-100 text-gray-700 whitespace-nowrap">
+                  <th class="py-3 px-4 border-b">Date</th>
+                  <th class="py-3 px-4 border-b">Type</th>
+                  <th class="py-3 px-4 border-b">Account</th>
+                  <th class="py-3 px-4 border-b">Amount</th>
+                  <th class="py-3 px-4 border-b">Description</th>
+                </tr>
+              </thead>
+              <tbody id="statement-body" class="whitespace-nowrap">
+                <tr>
+                  <td class="py-2 px-4 border-b">2025-05-17</td>
+                  <td class="py-2 px-4 border-b">Income</td>
+                  <td class="py-2 px-4 border-b">Bank</td>
+                  <td class="py-2 px-4 border-b text-green-600">+500</td>
+                  <td class="py-2 px-4 border-b">Salary for May</td>
+                </tr>
+                <tr>
+                  <td class="py-2 px-4 border-b">2025-05-17</td>
+                  <td class="py-2 px-4 border-b">Expense</td>
+                  <td class="py-2 px-4 border-b">Cash</td>
+                  <td class="py-2 px-4 border-b text-red-600">-100</td>
+                  <td class="py-2 px-4 border-b">Groceries & Snacks</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
     </section>
     <script src="./index.js"></script>
   </body>

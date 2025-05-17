@@ -1,0 +1,45 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-xl shadow-md w-3/4 sm:w-1/2 max-w-md">
+      <h2 class="text-3xl font-bold mb-6 text-center">Login</h2>
+      <form
+        action="http://localhost:3000/login"
+        class="flex flex-col gap-4"
+        method="POST"
+      >
+        <input
+          name="email"
+          type="email"
+          placeholder="Email"
+          class="border rounded-md px-4 py-2 w-full"
+          required
+        />
+        <input
+          name="password"
+          type="password"
+          placeholder="Password"
+          class="border rounded-md px-4 py-2 w-full"
+          required
+        />
+        <button
+          type="submit"
+          class="bg-blue-600 text-white rounded-md py-2 hover:bg-blue-700 transition"
+        >
+          Login
+        </button>
+      </form>
+      <p class="mt-4 text-center text-sm text-gray-600">
+        Don't have an account?
+        <a href="/signup" class="text-blue-600 hover:underline">Sign up</a>
+      </p>
+    </div>
+  </body>
+</html>
