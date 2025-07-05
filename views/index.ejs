@@ -8,12 +8,27 @@
   </head>
   <body class="bg-gray-100 min-h-screen">
     <section class="w-full flex flex-col items-center py-10">
-      <div class="max-w-6xl w-full px-6 text-left py-6">
-        <p class="text-xl font-bold">Welcome, <%=name%></p>
+      <div
+        class="max-w-6xl w-full flex flex-col items-center justify-between pl-10 pr-10 sm:flex-row pb-6 sm:pb-0"
+      >
+        <div class="py-6">
+          <p class="text-xl font-bold select-none">Welcome, <%=name%></p>
+        </div>
+        <div>
+          <form method="post" action="/logout">
+            <button
+              class="border text-white h-10 w-32 bg-red-600 rounded-md hover:bg-red-400 duration-300 hidden sm:block"
+            >
+              Log out
+            </button>
+          </form>
+        </div>
       </div>
       <div class="max-w-6xl w-full px-4">
         <!-- Grid Section -->
-        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+        <div
+          class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-10 select-none"
+        >
           <div
             class="bg-white flex flex-col justify-center items-left rounded-2xl p-6 shadow-md border-t-4 h-32 hover:border-t-8 border-red-300 duration-300"
           >
@@ -42,13 +57,14 @@
 
         <!-- Form Section -->
         <div class="bg-white rounded-2xl p-8 space-y-6 shadow-md border-t-2">
-          <p class="text-3xl font-bold underline underline-offset-8">
+          <p class="text-2xl font-bold underline underline-offset-8">
             Add Transaction
           </p>
           <form
-            action="http://localhost:3000/api"
+            action="http://192.168.0.104:3000/api"
             method="post"
             class="grid grid-cols-1 sm:grid-cols-2 gap-6"
+            id="transaction"
           >
             <div>
               <label class="text-xl font-bold block mb-2">Type</label>
@@ -100,6 +116,7 @@
 
             <div class="sm:col-span-2 flex justify-center mt-6">
               <button
+                type="submit"
                 class="bg-blue-500 text-white w-32 p-3 rounded-md transform hover:scale-105 duration-300"
               >
                 Submit
@@ -109,8 +126,8 @@
         </div>
 
         <!-- Statement Section - Responsive Vertical/Horizontal -->
-        <div class="bg-white rounded-2xl p-6 mt-10 shadow-md border-t-2">
-          <p class="text-3xl font-bold underline underline-offset-8 mb-6">
+        <div class="bg-white rounded-2xl p-8 mt-10 shadow-md border-t-2">
+          <p class="text-2xl font-bold underline underline-offset-8 mb-6">
             Transaction Statement
           </p>
 
@@ -153,91 +170,28 @@
                   </th>
                 </tr>
               </thead>
-              <tbody class="bg-white divide-y divide-gray-200">
-                <tr>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                    2025-05-17
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                    Income
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                    Bank
-                  </td>
-                  <td
-                    class="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium"
-                  >
-                    +500
-                  </td>
-                  <td class="px-6 py-4 text-sm text-gray-900 max-w-xs truncate">
-                    Salary for May
-                  </td>
-                </tr>
-                <tr>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                    2025-05-17
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                    Expense
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                    Cash
-                  </td>
-                  <td
-                    class="px-6 py-4 whitespace-nowrap text-sm text-red-600 font-medium"
-                  >
-                    -100
-                  </td>
-                  <td class="px-6 py-4 text-sm text-gray-900 max-w-xs truncate">
-                    Groceries & Snacks
-                  </td>
-                </tr>
-              </tbody>
+              <tbody
+                class="bg-white divide-y divide-gray-200"
+                id="transaction_table"
+              ></tbody>
             </table>
           </div>
-          <div class="md:hidden space-y-4">
-            <div class="border border-gray-200 rounded-lg p-4">
-              <div class="grid grid-cols-2 gap-2">
-                <div class="text-sm font-medium text-gray-500">Date</div>
-                <div class="text-sm">2025-05-17</div>
-
-                <div class="text-sm font-medium text-gray-500">Type</div>
-                <div class="text-sm">Income</div>
-
-                <div class="text-sm font-medium text-gray-500">Account</div>
-                <div class="text-sm">Bank</div>
-
-                <div class="text-sm font-medium text-gray-500">Amount</div>
-                <div class="text-sm text-green-600 font-medium">+500</div>
-
-                <div class="text-sm font-medium text-gray-500">Description</div>
-                <div class="text-sm">Salary for May</div>
-              </div>
-            </div>
-
-            <!-- Transaction Card 2 -->
-            <div class="border border-gray-200 rounded-lg p-4">
-              <div class="grid grid-cols-2 gap-2">
-                <div class="text-sm font-medium text-gray-500">Date</div>
-                <div class="text-sm">2025-05-17</div>
-
-                <div class="text-sm font-medium text-gray-500">Type</div>
-                <div class="text-sm">Expense</div>
-
-                <div class="text-sm font-medium text-gray-500">Account</div>
-                <div class="text-sm">Cash</div>
-
-                <div class="text-sm font-medium text-gray-500">Amount</div>
-                <div class="text-sm text-red-600 font-medium">-100</div>
-
-                <div class="text-sm font-medium text-gray-500">Description</div>
-                <div class="text-sm">Groceries & Snacks</div>
-              </div>
-            </div>
-          </div>
+          <div class="md:hidden space-y-4" id="div">
+            
+        </div>
+        <!-- Button -->
+        <div class="max-w-6xl w-full items-left pt-6 pl-2">
+          <form method="post" action="/logout">
+            <button
+              class="border text-white h-10 w-32 bg-red-600 rounded-md hover:bg-red-400 duration-300 block sm:hidden"
+            >
+              Log out
+            </button>
+          </form>
         </div>
       </div>
     </section>
-    <script src="./index.js"></script>
+    <!-- <script  src="./index.js"></script> -->
+    <script type="module" src="./log.js"></script>
   </body>
 </html>

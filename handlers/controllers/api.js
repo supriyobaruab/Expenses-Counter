@@ -6,6 +6,7 @@ async function api_get(req, res) {
     const userid = req.user;
     const information = await transationSchema
       .find({ userid: userid })
+      .sort({ _id: -1 })
       .populate("userid");
     res.status(200).json(information);
   } catch (error) {
@@ -15,16 +16,24 @@ async function api_get(req, res) {
 async function api_post(req, res) {
   try {
     const { type, amount, accntType, description } = req.body;
+
+    const now = new Date();
+    const formattedDate = now.toLocaleDateString("en-CA");
+
     const trans = new transationSchema({
       userid: req.user,
-      type: type,
-      amount: amount,
-      accntType: accntType,
-      description: description,
+      type,
+      amount,
+      accntType,
+      description,
+      date: formattedDate,
     });
+
     await trans.save();
     res.redirect("/");
-  } catch (error) {}
+  } catch (error) {
+    res.json(error);
+  }
 }
 
 module.exports = { api_get, api_post };

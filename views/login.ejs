@@ -9,11 +9,16 @@
   <body class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="bg-white p-8 rounded-xl shadow-md w-3/4 sm:w-1/2 max-w-md">
       <h2 class="text-3xl font-bold mb-6 text-center">Login</h2>
-      <form
-        action="http://localhost:3000/login"
-        class="flex flex-col gap-4"
-        method="POST"
+
+      <% if (typeof error !== "undefined") { %>
+      <div
+        class="bg-red-100 text-red-700 px-4 py-2 rounded-md mb-4 text-center font-semibold"
       >
+        <%= error %>
+      </div>
+      <% } %>
+
+      <form action="/login" class="flex flex-col gap-4" method="POST">
         <input
           name="email"
           type="email"
@@ -38,6 +43,10 @@
       <p class="mt-4 text-center text-sm text-gray-600">
         Don't have an account?
         <a href="/signup" class="text-blue-600 hover:underline">Sign up</a>
+      </p>
+      <p class="mt-4 text-center text-sm text-gray-600">
+        Forgot password?
+        <a href="/recover" class="text-blue-600 hover:underline">Recover</a>
       </p>
     </div>
   </body>

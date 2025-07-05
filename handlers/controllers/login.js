@@ -12,11 +12,11 @@ async function login_post(req, res) {
     const { email, password } = req.body;
     const person = await user.findOne({ email });
     if (!person) {
-      return res.status(403).json("User not found");
+      return res.render("login", { error: "User not found" });
     }
     const hashed_password = await bcrypt.compare(password, person.password);
     if (!hashed_password) {
-      return res.status(403).json("Authentication error");
+      return res.render("login", { error: "Wrong password" });
     }
     const token = jwt.sign(
       { username: person.username, id: person._id },

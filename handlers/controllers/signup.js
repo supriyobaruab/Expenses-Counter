@@ -12,7 +12,14 @@ async function signup_post(req, res) {
     await person.save();
     res.redirect("/login");
   } catch (error) {
-    res.status(500).json(error);
+    if (error.code === 11000) {
+      return res
+        .status(400)
+        .render("signup", { error: "Email already in use" });
+    }
+    res
+      .status(500)
+      .render("signup", { error: "Server error. Please try again." });
   }
 }
 async function signup_get(req, res) {
