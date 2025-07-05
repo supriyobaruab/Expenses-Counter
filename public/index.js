@@ -1,4 +1,4 @@
-export const url = "http://192.168.0.104:3000";
+export const url = "https://trackmoney.countbites.tech";
 const bank = document.getElementById("bank");
 const bkash = document.getElementById("bkash");
 const cash = document.getElementById("cash");
