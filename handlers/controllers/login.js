@@ -22,7 +22,10 @@ async function login_post(req, res) {
       { username: person.username, id: person._id },
       "amitumiaramra"
     );
-    res.cookie("token", token);
+    res.cookie("token", token, {
+      httpOnly: true,
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    });
     res.redirect("/");
   } catch (error) {
     res.status(500).json(error);
