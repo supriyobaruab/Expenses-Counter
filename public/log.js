@@ -21,7 +21,7 @@ async function createTable() {
                   <td
                     class="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium"
                   >
-                    +${info.amount}
+                    +${info.amount}৳
                   </td>
                   <td class="px-6 py-4 text-sm text-gray-900 max-w-xs truncate">
                     ${info.description}
@@ -41,7 +41,7 @@ async function createTable() {
                     <div class="text-sm">${info.accntType}</div>
     
                     <div class="text-sm font-medium text-gray-500">Amount</div>
-                    <div class="text-sm text-green-600 font-medium">+${info.amount}</div>
+                    <div class="text-sm text-green-600 font-medium">+${info.amount}৳</div>
     
                     <div class="text-sm font-medium text-gray-500">Description</div>
                     <div class="text-sm">${info.description}</div>
@@ -63,7 +63,7 @@ async function createTable() {
                   <td
                     class="px-6 py-4 whitespace-nowrap text-sm text-red-600 font-medium"
                   >
-                    -${info.amount}
+                    -${info.amount}৳
                   </td>
                   <td class="px-6 py-4 text-sm text-gray-900 max-w-xs truncate">
                     ${info.description}
@@ -83,7 +83,7 @@ async function createTable() {
                     <div class="text-sm">${info.accntType}</div>
     
                     <div class="text-sm font-medium text-gray-500">Amount</div>
-                    <div class="text-sm text-red-600 font-medium">-${info.amount}</div>
+                    <div class="text-sm text-red-600 font-medium">-${info.amount}৳</div>
     
                     <div class="text-sm font-medium text-gray-500">Description</div>
                     <div class="text-sm">${info.description}</div>
